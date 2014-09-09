@@ -29,4 +29,12 @@ public class BibliotecaAppTest {
         assertEquals(exceptResults, ActualResults);
     }
 
+
+    @Test
+    public void shouldReturnAllBooksWhenKeyEqual1() {
+        String ActualResults = BibliotecaApp.HandlerMenuInput('1');
+        String exceptResults = "Design IOT,Phodal,2014\n" +
+                "Design IOT 2,Phodal,2014\n";
+        assertEquals(exceptResults, ActualResults);
+    }
 }
