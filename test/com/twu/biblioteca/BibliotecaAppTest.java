@@ -17,14 +17,15 @@ public class BibliotecaAppTest {
     @Test
     public void shouldReturnAllBooks() {
         String ActualResults = BibliotecaApp.ListAllBooks();
-        String exceptResults = "Design IOT";
+        String exceptResults = "Design IOT\nDesign IOT 2\n";
         assertEquals(exceptResults, ActualResults);
     }
 
     @Test
     public void shouldReturnAllBooksWithAuthorAndYear() {
         String ActualResults = BibliotecaApp.ListAllBooksWithDetails();
-        String exceptResults = "Design IOT,Phodal,2014";
+        String exceptResults = "Design IOT,Phodal,2014\n" +
+                "Design IOT 2,Phodal,2014\n";
         assertEquals(exceptResults, ActualResults);
     }
 

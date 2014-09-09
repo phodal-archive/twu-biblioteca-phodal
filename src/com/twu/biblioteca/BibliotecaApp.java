@@ -1,13 +1,16 @@
 package com.twu.biblioteca;
 
+import java.io.IOException;
+
 public class BibliotecaApp {
     static Library library = new Library();
+    static MainMenu menu = new MainMenu();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println(Welcome());
-        System.out.println("Hi, There is All Books:");
-        System.out.println(ListAllBooks());
-        System.out.println(ListAllBooksWithDetails());
+        System.out.println("Choose you Menu:");
+        char getKey = (char) System.in.read();
+        System.out.println("You Choose " + getKey);
     }
 
     public static String Welcome(){
