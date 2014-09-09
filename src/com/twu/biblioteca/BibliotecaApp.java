@@ -17,5 +17,9 @@ public class BibliotecaApp {
         return library.getAllBookName();
     }
 
+    public static String ListAllBooksWithDetails() {
+        String results = "Design IOT,Phodal,2014";
+        return results;
+    }
 }
 

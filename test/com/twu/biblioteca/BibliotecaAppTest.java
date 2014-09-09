@@ -8,18 +8,24 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldReturnWelcomeMessage() {
-        String exceptResults = BibliotecaApp.Welcome();
-        String ActualResults = "Welcome to Biblioteca Library";
+        String ActualResults = BibliotecaApp.Welcome();
+        String exceptResults = "Welcome to Biblioteca Library";
         assertEquals(exceptResults, ActualResults);
     }
 
 
     @Test
     public void shouldReturnAllBooks() {
-        String exceptResults = BibliotecaApp.ListAllBooks();
-        String ActualResults = "Design IOT";
+        String ActualResults = BibliotecaApp.ListAllBooks();
+        String exceptResults = "Design IOT";
         assertEquals(exceptResults, ActualResults);
     }
 
+    @Test
+    public void shouldReturnAllBooksWithAuthorAndYear() {
+        String ActualResults = BibliotecaApp.ListAllBooksWithDetails();
+        String exceptResults = "Design IOT,Phodal,2014";
+        assertEquals(exceptResults, ActualResults);
+    }
 
 }
