@@ -9,8 +9,9 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
         System.out.println(Welcome());
         System.out.println("Choose you Menu:");
-        char getKey = (char) System.in.read();
-        System.out.println("You Choose " + getKey);
+        System.out.println("1. List All Books");
+        char key = (char) System.in.read();
+        System.out.println(HandlerMenuInput(key));
     }
 
     public static String Welcome(){
@@ -23,6 +24,16 @@ public class BibliotecaApp {
 
     public static String ListAllBooksWithDetails() {
         return library.getAllBookDetails();
+    }
+
+
+    public static String HandlerMenuInput(char key) {
+        System.out.println("You Choose " + key);
+        String result = "";
+        if(key == '1'){
+            result += library.getAllBookDetails();
+        }
+        return result;
     }
 }
 
