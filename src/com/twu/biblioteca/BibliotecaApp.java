@@ -7,6 +7,7 @@ public class BibliotecaApp {
         System.out.println(Welcome());
         System.out.println("Hi, There is All Books:");
         System.out.println(ListAllBooks());
+        System.out.println(ListAllBooksWithDetails());
     }
 
     public static String Welcome(){
@@ -18,8 +19,7 @@ public class BibliotecaApp {
     }
 
     public static String ListAllBooksWithDetails() {
-        String results = "Design IOT,Phodal,2014";
-        return results;
+        return library.getAllBookDetails();
     }
 }
 
