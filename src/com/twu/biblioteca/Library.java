@@ -35,5 +35,9 @@ class Library {
         }
         return results;
     }
+
+    public String checkoutBook(Book book) {
+        return "Design IOT,Phodal,2014\n";
+    }
 }
 

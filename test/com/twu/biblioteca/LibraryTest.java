@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
     private Book book = new Book("Design IOT", "Phodal", "2014");
+    private Book book2 = new Book("Design IOT 2", "Phodal", "2014");
     private List<Book> allBooks = new ArrayList<>();
     private Library library = new Library(allBooks);
 
@@ -28,6 +29,14 @@ public class LibraryTest {
     @Test
     public void shouldReturnAllBooksWithAuthorAndYear() {
         String ActualResults = library.getAllBookDetails();
+        String exceptResults = "Design IOT,Phodal,2014\n";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldNotReturnBookWhenBookCheckedOut() throws Exception {
+        allBooks.add(book2);
+        String ActualResults = library.checkoutBook(book2);
         String exceptResults = "Design IOT,Phodal,2014\n";
         assertEquals(exceptResults, ActualResults);
     }
