@@ -23,6 +23,7 @@ class Library {
 
     public String getAllBookDetails() {
         String results = "";
+
         for(int i=0; i< books.size(); i++) {
             BookBuilder builder = new BookBuilder();
             Book book = books.get(i);
