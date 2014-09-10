@@ -39,8 +39,13 @@ class Library {
     }
 
     public String checkoutBook(Book book) {
-        book.setBookCheckoutStatus(true);
-        return getAllBookDetails();
+        if(book.isBookCheckout() == false){
+            book.setBookCheckoutStatus(true);
+            return "Thank you! Enjoy the book";
+        } else if(book.isBookCheckout() == true){
+            return "That book is not available.";
+        }
+        return "";
     }
 }
 
