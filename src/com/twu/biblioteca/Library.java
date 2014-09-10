@@ -27,17 +27,20 @@ class Library {
         for(int i=0; i< books.size(); i++) {
             BookBuilder builder = new BookBuilder();
             Book book = books.get(i);
-            results += builder
-                    .addName(book)
-                    .addAuthor(book)
-                    .addPublishDate(book)
-                    .build();
+            if(book.isBookCheckout() != true) {
+                results += builder
+                        .addName(book)
+                        .addAuthor(book)
+                        .addPublishDate(book)
+                        .build();
+            }
         }
         return results;
     }
 
     public String checkoutBook(Book book) {
-        return "Design IOT,Phodal,2014\n";
+        book.setBookCheckoutStatus(true);
+        return getAllBookDetails();
     }
 }
 
