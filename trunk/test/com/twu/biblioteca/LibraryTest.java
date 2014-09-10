@@ -55,7 +55,16 @@ public class LibraryTest {
         allBooks.add(book2);
         book2.setBookCheckoutStatus(true);
         String ActualResults = library.returnBook(book2);
-        String exceptResults = "Design IOT,Phodal,2014\nDesign IOT 2,Phodal,2014\n";
+        String exceptResults = "Thank you for returning the book.";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnUnSuccessfulMessageWhenBookReturnUnSuccessful() throws Exception {
+        allBooks.add(book2);
+        book2.setBookCheckoutStatus(false);
+        String ActualResults = library.returnBook(book2);
+        String exceptResults = "That is not a valid book to return.";
         assertEquals(exceptResults, ActualResults);
     }
 }
