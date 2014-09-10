@@ -40,12 +40,22 @@ public class LibraryTest {
         String exceptResults = "Thank you! Enjoy the book";
         assertEquals(exceptResults, ActualResults);
     }
+
     @Test
     public void shouldReturnUnsuccessfulMessageWhenBookCheckedOutUnsuccessful() throws Exception {
         allBooks.add(book2);
         book2.setBookCheckoutStatus(true);
         String ActualResults = library.checkoutBook(book2);
         String exceptResults = "That book is not available.";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnSuccessfulMessageWhenBookReturnSuccessful() throws Exception {
+        allBooks.add(book2);
+        book2.setBookCheckoutStatus(true);
+        String ActualResults = library.returnBook(book2);
+        String exceptResults = "Design IOT,Phodal,2014\nDesign IOT 2,Phodal,2014\n";
         assertEquals(exceptResults, ActualResults);
     }
 }
