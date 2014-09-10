@@ -1,10 +1,34 @@
 package com.twu.biblioteca;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 
-public class LibraryTest extends TestCase {
+import java.util.ArrayList;
+import java.util.List;
 
-    public void testGetAllBookName() throws Exception {
+import static org.junit.Assert.assertEquals;
 
+public class LibraryTest {
+    private Book book = new Book("Design IOT", "Phodal", "2014");
+    private List<Book> allBooks = new ArrayList<>();
+    private Library library = new Library(allBooks);
+
+    @Before
+    public void setUp(){
+        allBooks.add(book);
+    }
+
+    @Test
+    public void shouldReturnAllBooks() {
+        String ActualResults = library.getAllBookName();
+        String exceptResults = "Design IOT\n";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnAllBooksWithAuthorAndYear() {
+        String ActualResults = library.getAllBookDetails();
+        String exceptResults = "Design IOT,Phodal,2014\n";
+        assertEquals(exceptResults, ActualResults);
     }
 }
