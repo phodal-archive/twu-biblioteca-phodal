@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
     private static Book book = new Book("Design IOT", "Phodal", "2014");
@@ -14,11 +15,17 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
         initLibrary();
         System.out.println(welcomeMessage);
-        System.out.println("Choose you Menu:");
+        System.out.println("Choose you Menu, Enter the Number to Continue:");
         System.out.println("1. List All Books");
 
-        char key = (char) System.in.read();
-        System.out.println(HandlerMenuInput(key));
+        String key = "";
+        while(key.equals("Quit") != true) {
+            Scanner sc = new Scanner(System.in);
+            key = sc.nextLine();
+
+            System.out.println("You Select Menu: " + key);
+            System.out.println(HandlerMenuInput(key));
+        }
     }
 
     private static void initLibrary() {
@@ -26,13 +33,15 @@ public class BibliotecaApp {
         allBooks.add(book2);
     }
 
-    private static String HandlerMenuInput(char key) {
-        System.out.println("You Input " + key);
+    private static String HandlerMenuInput(String key) {
         String result = "";
-        if(key == '1'){
+        if(key.equals("1")){
             result += library.getAllBookDetails();
+        } else
+        if(key.equals("Quit")) {
+            result = "";
         } else {
-            result += "Input Error";
+            result += "Input Error, No such Key";
         }
         return result;
     }
