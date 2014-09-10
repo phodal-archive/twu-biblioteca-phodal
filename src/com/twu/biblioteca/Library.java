@@ -47,5 +47,10 @@ class Library {
         }
         return "";
     }
+
+    public String returnBook(Book book) {
+        book.setBookCheckoutStatus(false);
+        return getAllBookDetails();
+    }
 }
 
