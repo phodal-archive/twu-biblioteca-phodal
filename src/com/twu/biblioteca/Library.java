@@ -7,9 +7,9 @@ import java.util.List;
  */
 
 class Library {
-    private final List<Book> books;
+    private final List<LibraryBook> books;
 
-    public Library(List<Book> books){
+    public Library(List<LibraryBook> books){
         this.books = books;
     }
 
@@ -25,9 +25,9 @@ class Library {
         String results = "";
 
         for(int i=0; i< books.size(); i++) {
-            BookBuilder builder = new BookBuilder();
-            Book book = books.get(i);
-            if(book.isBookCheckout() != true) {
+            LibraryBookBuilder builder = new LibraryBookBuilder();
+            LibraryBook book = books.get(i);
+            if(book.isBookInLibrary() == true) {
                 results += builder
                         .addName(book)
                         .addAuthor(book)
@@ -38,24 +38,42 @@ class Library {
         return results;
     }
 
-    public String checkoutBook(Book book) {
-        if(book.isBookCheckout() == false){
-            book.setBookCheckoutStatus(true);
-            return "Thank you! Enjoy the book";
-        } else if(book.isBookCheckout() == true){
-            return "That book is not available.";
+    public String checkoutBook(LibraryBook book) {
+        String result;
+        if(book.isBookInLibrary() == true){
+            book.setBookCheckout();
+            result = successfulCheckout();
+        } else {
+            result = unsuccessfulCheckout();
         }
-        return "";
+        return result;
     }
 
-    public String returnBook(Book book) {
-        if(book.isBookCheckout() == false){
-            return "That is not a valid book to return.";
-        } else if(book.isBookCheckout() == true){
-            book.setBookCheckoutStatus(false);
-            return "Thank you for returning the book.";
+    public String returnBook(LibraryBook book) {
+        String result;
+        if(book.isBookInLibrary() == true){
+            result = successfulReturn();
+        } else {
+            book.setBookReturn();
+            result = unsuccessfulReturn();
         }
-        return "";
+        return result;
+    }
+
+    private String unsuccessfulCheckout() {
+        return "That book is not available.";
+    }
+
+    private String successfulCheckout() {
+        return "Thank you! Enjoy the book";
+    }
+
+    private String unsuccessfulReturn() {
+        return "Thank you for returning the book.";
+    }
+
+    private String successfulReturn() {
+        return "That is not a valid book to return.";
     }
 }
 
