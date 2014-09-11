@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    private static Book book = new Book("Design IOT", "Phodal", "2014");
-    private static Book book2 = new Book("Design IOT 2", "Phodal", "2014");
-    private static List<Book> allBooks = new ArrayList<>();
+    private static LibraryBook book = new LibraryBook("Design IOT", "Phodal", "2014");
+    private static LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", "2014");
+    private static List<LibraryBook> allBooks = new ArrayList<>();
     private static Library library = new Library(allBooks);
     private static String welcomeMessage = "Welcome to Biblioteca Library";
 
@@ -34,16 +34,14 @@ public class BibliotecaApp {
     }
 
     private static String HandlerMenuInput(String key) {
-        String result = "";
-        if(key.equals("1")){
-            result += library.getAllBookDetails();
-        } else
-        if(key.equals("Quit")) {
-            result = "";
-        } else {
-            result += "Input Error, No such Key";
+        switch (key) {
+            case "1":
+                return library.getAllBookDetails();
+            case "Quit":
+                return "";
+            default:
+                return "Input Error, No such Key";
         }
-        return result;
     }
 }
 

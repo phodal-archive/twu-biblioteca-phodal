@@ -9,9 +9,9 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    private Book book = new Book("Design IOT", "Phodal", "2014");
-    private Book book2 = new Book("Design IOT 2", "Phodal", "2014");
-    private List<Book> allBooks = new ArrayList<>();
+    private LibraryBook book = new LibraryBook("Design IOT", "Phodal", "2014");
+    private LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", "2014");
+    private List<LibraryBook> allBooks = new ArrayList<>();
     private Library library = new Library(allBooks);
 
     @Before
@@ -44,7 +44,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnUnsuccessfulMessageWhenBookCheckedOutUnsuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookCheckoutStatus(true);
+        book2.setBookCheckout();
         String ActualResults = library.checkoutBook(book2);
         String exceptResults = "That book is not available.";
         assertEquals(exceptResults, ActualResults);
@@ -53,7 +53,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageWhenBookReturnSuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookCheckoutStatus(true);
+        book2.setBookCheckout();
         String ActualResults = library.returnBook(book2);
         String exceptResults = "Thank you for returning the book.";
         assertEquals(exceptResults, ActualResults);
@@ -62,7 +62,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnUnSuccessfulMessageWhenBookReturnUnSuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookCheckoutStatus(false);
+        book2.setBookReturn();
         String ActualResults = library.returnBook(book2);
         String exceptResults = "That is not a valid book to return.";
         assertEquals(exceptResults, ActualResults);
