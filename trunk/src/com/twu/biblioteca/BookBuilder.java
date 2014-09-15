@@ -7,7 +7,7 @@ package com.twu.biblioteca;
 public class BookBuilder {
     private String name;
     private String author;
-    private String publishDate;
+    private int publishDate;
 
     public BookBuilder() {
 

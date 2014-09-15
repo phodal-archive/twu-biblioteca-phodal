@@ -6,10 +6,12 @@ package com.twu.biblioteca;
 public abstract class Artistic {
     private String name;
     private int publishDate;
+    private boolean isArtisticInLibrary;
 
     public Artistic(String name, int publishDate){
         this.name = name;
         this.publishDate = publishDate;
+        isArtisticInLibrary = true;
     }
 
     public String getName() {
@@ -26,5 +28,17 @@ public abstract class Artistic {
 
     public void setPublishDate(int publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public void setArtisticCheckout() {
+        this.isArtisticInLibrary = false;
+    };
+
+    public void setArtisticReturn() {
+        this.isArtisticInLibrary = true;
+    };
+
+    public boolean isArtisticInLibrary() {
+        return isArtisticInLibrary;
     }
 }
