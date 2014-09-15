@@ -9,17 +9,17 @@ public class LibraryBookBuilder {
     private String author;
     private int publishDate;
 
-    public LibraryBookBuilder addName(LibraryBook book) {
+    public LibraryBookBuilder addName(Book book) {
         this.name = book.getName();
         return this;
     }
 
-    public LibraryBookBuilder addAuthor(LibraryBook book) {
+    public LibraryBookBuilder addAuthor(Book book) {
         this.author = book.getAuthor();
         return this;
     }
 
-    public LibraryBookBuilder addPublishDate(LibraryBook book) {
+    public LibraryBookBuilder addPublishDate(Book book) {
         this.publishDate = book.getPublishDate();
         return this;
     }

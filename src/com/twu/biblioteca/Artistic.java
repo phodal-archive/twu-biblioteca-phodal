@@ -38,7 +38,7 @@ public abstract class Artistic {
         this.isArtisticInLibrary = true;
     };
 
-    public boolean isArtisticInLibrary() {
+    public boolean isInLibrary() {
         return isArtisticInLibrary;
     }
 }
