@@ -13,6 +13,7 @@ public class LibraryTest {
     private LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", 2014);
     private List<LibraryMovies> movies = new ArrayList<>();
     private LibraryMovies movie1 = new LibraryMovies("design patterns",1994,"GOF",10);
+    private LibraryMovies movie2 = new LibraryMovies("design patterns 2",1996,"GOF",10);
     private List<LibraryBook> allBooks = new ArrayList<>();
     private Library library = new Library(allBooks, movies);
 
@@ -75,6 +76,42 @@ public class LibraryTest {
         book2.setBookReturn();
         String ActualResults = library.returnBook(book2);
         String exceptResults = "That is not a valid book to return.";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+
+    @Test
+    public void shouldReturnSuccessfulMessageMovieWhenBookCheckedOutSuccessful() throws Exception {
+        allBooks.add(book2);
+        String ActualResults = library.checkoutBook(book2);
+        String exceptResults = "Thank you! Enjoy the movie";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnUnsuccessfulMessageWhenMovieCheckedOutUnsuccessful() throws Exception {
+        allBooks.add(book2);
+        book2.setBookCheckout();
+        String ActualResults = library.checkoutBook(book2);
+        String exceptResults = "That movie is not available.";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnSuccessfulMessageWhenMovieReturnSuccessful() throws Exception {
+        allBooks.add(book2);
+        book2.setBookCheckout();
+        String ActualResults = library.returnBook(book2);
+        String exceptResults = "Thank you for returning the movie.";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnUnSuccessfulMessageWhenMovieReturnUnSuccessful() throws Exception {
+        allBooks.add(book2);
+        book2.setBookReturn();
+        String ActualResults = library.returnBook(book2);
+        String exceptResults = "That is not a valid movie to return.";
         assertEquals(exceptResults, ActualResults);
     }
 }
