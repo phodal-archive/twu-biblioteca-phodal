@@ -25,14 +25,14 @@ public class MoviesTest {
 
     @Test
     public void testGetYear() throws Exception {
-        assertEquals(year, movies.getYear());
+        assertEquals(year, movies.getPublishDate());
     }
 
     @Test
     public void testSetYear() throws Exception {
         int year = 1995;
-        movies.setYear(this.year);
-        assertEquals(this.year, movies.getYear());
+        movies.setPublishDate(this.year);
+        assertEquals(this.year, movies.getPublishDate());
     }
 
     @Test

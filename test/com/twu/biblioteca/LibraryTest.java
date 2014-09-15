@@ -9,20 +9,30 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    private LibraryBook book = new LibraryBook("Design IOT", "Phodal", "2014");
-    private LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", "2014");
+    private LibraryBook book = new LibraryBook("Design IOT", "Phodal", 2014);
+    private LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", 2014);
+    private List<LibraryMovies> movies = new ArrayList<>();
+    private LibraryMovies movie1 = new LibraryMovies("design patterns",1994,"GOF",10);
     private List<LibraryBook> allBooks = new ArrayList<>();
-    private Library library = new Library(allBooks);
+    private Library library = new Library(allBooks, movies);
 
     @Before
     public void setUp(){
         allBooks.add(book);
+        movies.add(movie1);
     }
 
     @Test
     public void shouldReturnAllBooks() {
         String ActualResults = library.getAllBookName();
         String exceptResults = "Design IOT\n";
+        assertEquals(exceptResults, ActualResults);
+    }
+
+    @Test
+    public void shouldReturnAllMovies() {
+        String ActualResults = library.getAllMovies();
+        String exceptResults = "design patterns\n";
         assertEquals(exceptResults, ActualResults);
     }
 

@@ -7,7 +7,7 @@ package com.twu.biblioteca;
 public class LibraryBookBuilder {
     private String name;
     private String author;
-    private String publishDate;
+    private int publishDate;
 
     public LibraryBookBuilder addName(LibraryBook book) {
         this.name = book.getName();

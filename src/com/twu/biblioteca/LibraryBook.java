@@ -6,7 +6,7 @@ package com.twu.biblioteca;
 public class LibraryBook extends Book {
     private Boolean isBookInLibrary;
 
-    public LibraryBook(String bookName, String author, String publishDate) {
+    public LibraryBook(String bookName, String author, int publishDate) {
         super(bookName, author, publishDate);
         this.isBookInLibrary = true;
     }

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class LibraryBookBuilderTest {
-    LibraryBook book = new LibraryBook("Design IOT", "Phodal", "2014");
+    LibraryBook book = new LibraryBook("Design IOT", "Phodal", 2014);
 
     @Test
     public void shouldReturnABookDetail() throws Exception {
