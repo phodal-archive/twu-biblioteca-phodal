@@ -16,7 +16,7 @@ public class LibraryMoviesBuilder {
     }
 
     public LibraryMoviesBuilder addYear(Movies movie) {
-        this.year = movie.getYear();
+        this.year = movie.getPublishDate();
         return this;
     }
 

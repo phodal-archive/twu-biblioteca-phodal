@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
-    private static LibraryBook book = new LibraryBook("Design IOT", "Phodal", "2014");
-    private static LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", "2014");
+    private static LibraryBook book = new LibraryBook("Design IOT", "Phodal", 2014);
+    private static LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", 2016);
     private static List<LibraryBook> allBooks = new ArrayList<>();
     private static Library library = new Library(allBooks);
     private static String welcomeMessage = "Welcome to Biblioteca Library";

@@ -3,33 +3,14 @@ package com.twu.biblioteca;
 /**
  * Created by fdhuang on 9/15/14.
  */
-public class Movies {
-    private String name;
-    private int year;
+public class Movies extends Artistic{
     private String director;
     private int rating;
 
-    public Movies(String name, int year, String director, int rating) {
-        this.name = name;
-        this.year = year;
+    public Movies(String name, int publishDate, String director, int rating) {
+        super(name, publishDate);
         this.director = director;
         this.rating = rating;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public String getDirector() {
