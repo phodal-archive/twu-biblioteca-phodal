@@ -43,7 +43,7 @@ public class Library {
         for(int i=0; i< books.size(); i++) {
             LibraryBookBuilder builder = new LibraryBookBuilder();
             LibraryBook book = books.get(i);
-            if(book.isBookInLibrary() == true) {
+            if(book.isArtisticInLibrary() == true) {
                 results += builder
                         .addName(book)
                         .addAuthor(book)
@@ -56,8 +56,8 @@ public class Library {
 
     public String checkoutBook(LibraryBook book) {
         String result;
-        if(book.isBookInLibrary() == true){
-            book.setBookCheckout();
+        if(book.isArtisticInLibrary() == true){
+            book.setArtisticCheckout();
             result = successfulCheckout("book");
         } else {
             result = unsuccessfulCheckout("book");
@@ -67,10 +67,10 @@ public class Library {
 
     public String returnBook(LibraryBook book) {
         String result;
-        if(book.isBookInLibrary() == true){
+        if(book.isArtisticInLibrary() == true){
             result = successfulReturn("book");
         } else {
-            book.setBookReturn();
+            book.setArtisticReturn();
             result = unsuccessfulReturn("book");
         }
         return result;

@@ -55,7 +55,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnUnsuccessfulMessageWhenBookCheckedOutUnsuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookCheckout();
+        book2.setArtisticCheckout();
         String ActualResults = library.checkoutBook(book2);
         String exceptResults = "That book is not available.";
         assertEquals(exceptResults, ActualResults);
@@ -64,7 +64,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageWhenBookReturnSuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookCheckout();
+        book2.setArtisticCheckout();
         String ActualResults = library.returnBook(book2);
         String exceptResults = "Thank you for returning the book.";
         assertEquals(exceptResults, ActualResults);
@@ -73,7 +73,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnUnSuccessfulMessageWhenBookReturnUnSuccessful() throws Exception {
         allBooks.add(book2);
-        book2.setBookReturn();
+        book2.setArtisticReturn();
         String ActualResults = library.returnBook(book2);
         String exceptResults = "That is not a valid book to return.";
         assertEquals(exceptResults, ActualResults);
