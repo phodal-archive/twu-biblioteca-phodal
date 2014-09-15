@@ -7,20 +7,20 @@ import java.util.List;
  */
 
 public class Library {
-    private final List<LibraryBook> books;
-    private final List<LibraryMovies> movies;
+    private final List<Book> books;
+    private final List<Movies> movies;
 
-    public Library(List<LibraryBook> books) {
+    public Library(List<Book> books) {
         this(books, null);
     }
 
-    public Library(List<LibraryBook> books, List<LibraryMovies> movies){
+    public Library(List<Book> books, List<Movies> movies){
         this.books = books;
         this.movies = movies;
     }
 
     public String getAllBookName() {
-        List<LibraryBook> books1 = books;
+        List<Book> books1 = books;
         String results = "";
         for(int i=0; i< books1.size(); i++) {
             results += books1.get(i).getName() + "\n";
@@ -29,7 +29,7 @@ public class Library {
     }
 
     public String getAllMovies() {
-        List<LibraryMovies> movies1 = movies;
+        List<Movies> movies1 = movies;
         String results = "";
         for(int i=0; i< movies1.size(); i++) {
             results += movies1.get(i).getName() + "\n";
@@ -42,8 +42,8 @@ public class Library {
 
         for(int i=0; i< books.size(); i++) {
             LibraryBookBuilder builder = new LibraryBookBuilder();
-            LibraryBook book = books.get(i);
-            if(book.isArtisticInLibrary() == true) {
+            Book book = books.get(i);
+            if(book.isInLibrary() == true) {
                 results += builder
                         .addName(book)
                         .addAuthor(book)
@@ -54,46 +54,24 @@ public class Library {
         return results;
     }
 
-    public String checkoutBook(LibraryBook book) {
+    public String checkoutArtistic(Artistic artistic, String artisticType) {
         String result;
-        if(book.isArtisticInLibrary() == true){
-            book.setArtisticCheckout();
-            result = successfulCheckout("book");
+        if(artistic.isInLibrary() == true){
+            artistic.setArtisticCheckout();
+            result = successfulCheckout(artisticType);
         } else {
-            result = unsuccessfulCheckout("book");
+            result = unsuccessfulCheckout(artisticType);
         }
         return result;
     }
 
-    public String returnBook(LibraryBook book) {
+    public String returnArtistic(Artistic artistic, String artisticType) {
         String result;
-        if(book.isArtisticInLibrary() == true){
-            result = successfulReturn("book");
+        if(artistic.isInLibrary() == true){
+            result = successfulReturn(artisticType);
         } else {
-            book.setArtisticReturn();
-            result = unsuccessfulReturn("book");
-        }
-        return result;
-    }
-
-    public String checkoutMovie(LibraryMovies movie) {
-        String result;
-        if(movie.isArtisticInLibrary() == true){
-            movie.setArtisticCheckout();
-            result = successfulCheckout("movie");
-        } else {
-            result = unsuccessfulCheckout("movie");
-        }
-        return result;
-    }
-
-    public String returnMovie(LibraryMovies movie) {
-        String result;
-        if(movie.isArtisticInLibrary() == true){
-            result = successfulReturn("movie");
-        } else {
-            movie.setArtisticReturn();
-            result = unsuccessfulReturn("movie");
+            artistic.setArtisticReturn();
+            result = unsuccessfulReturn(artisticType);
         }
         return result;
     }

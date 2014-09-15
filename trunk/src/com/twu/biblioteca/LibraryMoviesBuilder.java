@@ -4,7 +4,6 @@ package com.twu.biblioteca;
  * Created by fdhuang on 9/15/14.
  */
 public class LibraryMoviesBuilder {
-    private Movies movie;
     private String name;
     private int year;
     private String director;

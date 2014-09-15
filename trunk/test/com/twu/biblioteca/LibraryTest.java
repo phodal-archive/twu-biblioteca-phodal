@@ -9,12 +9,12 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    private LibraryBook book = new LibraryBook("Design IOT", "Phodal", 2014);
-    private LibraryBook book2 = new LibraryBook("Design IOT 2", "Phodal", 2014);
-    private List<LibraryMovies> movies = new ArrayList<>();
-    private LibraryMovies movie1 = new LibraryMovies("design patterns",1994,"GOF",10);
-    private LibraryMovies movie2 = new LibraryMovies("design patterns 2",1996,"GOF",10);
-    private List<LibraryBook> allBooks = new ArrayList<>();
+    private Book book = new Book("Design IOT", "Phodal", 2014);
+    private Book book2 = new Book("Design IOT 2", "Phodal", 2014);
+    private List<Movies> movies = new ArrayList<>();
+    private Movies movie1 = new Movies("design patterns",1994,"GOF",10);
+    private Movies movie2 = new Movies("design patterns 2",1996,"GOF",10);
+    private List<Book> allBooks = new ArrayList<>();
     private Library library = new Library(allBooks, movies);
 
     @Before
@@ -47,7 +47,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageBookWhenBookCheckedOutSuccessful() throws Exception {
         allBooks.add(book2);
-        String ActualResults = library.checkoutBook(book2);
+        String ActualResults = library.checkoutArtistic(book2, "book");
         String exceptResults = "Thank you! Enjoy the book";
         assertEquals(exceptResults, ActualResults);
     }
@@ -56,7 +56,7 @@ public class LibraryTest {
     public void shouldReturnUnsuccessfulMessageWhenBookCheckedOutUnsuccessful() throws Exception {
         allBooks.add(book2);
         book2.setArtisticCheckout();
-        String ActualResults = library.checkoutBook(book2);
+        String ActualResults = library.checkoutArtistic(book2, "book");
         String exceptResults = "That book is not available.";
         assertEquals(exceptResults, ActualResults);
     }
@@ -65,7 +65,7 @@ public class LibraryTest {
     public void shouldReturnSuccessfulMessageWhenBookReturnSuccessful() throws Exception {
         allBooks.add(book2);
         book2.setArtisticCheckout();
-        String ActualResults = library.returnBook(book2);
+        String ActualResults = library.returnArtistic(book2, "book");
         String exceptResults = "Thank you for returning the book.";
         assertEquals(exceptResults, ActualResults);
     }
@@ -74,7 +74,7 @@ public class LibraryTest {
     public void shouldReturnUnSuccessfulMessageWhenBookReturnUnSuccessful() throws Exception {
         allBooks.add(book2);
         book2.setArtisticReturn();
-        String ActualResults = library.returnBook(book2);
+        String ActualResults = library.returnArtistic(book2, "book");
         String exceptResults = "That is not a valid book to return.";
         assertEquals(exceptResults, ActualResults);
     }
@@ -83,7 +83,7 @@ public class LibraryTest {
     @Test
     public void shouldReturnSuccessfulMessageMovieWhenBookCheckedOutSuccessful() throws Exception {
         movies.add(movie2);
-        String ActualResults = library.checkoutMovie(movie2);
+        String ActualResults = library.checkoutArtistic(movie2, "movie");
         String exceptResults = "Thank you! Enjoy the movie";
         assertEquals(exceptResults, ActualResults);
     }
@@ -92,7 +92,7 @@ public class LibraryTest {
     public void shouldReturnUnsuccessfulMessageWhenMovieCheckedOutUnsuccessful() throws Exception {
         movies.add(movie2);
         movie2.setArtisticCheckout();
-        String ActualResults = library.checkoutMovie(movie2);
+        String ActualResults = library.checkoutArtistic(movie2, "movie");
         String exceptResults = "That movie is not available.";
         assertEquals(exceptResults, ActualResults);
     }
@@ -101,7 +101,7 @@ public class LibraryTest {
     public void shouldReturnSuccessfulMessageWhenMovieReturnSuccessful() throws Exception {
         movies.add(movie2);
         movie2.setArtisticCheckout();
-        String ActualResults = library.returnMovie(movie2);
+        String ActualResults = library.returnArtistic(movie2, "movie");
         String exceptResults = "Thank you for returning the movie.";
         assertEquals(exceptResults, ActualResults);
     }
@@ -110,7 +110,7 @@ public class LibraryTest {
     public void shouldReturnUnSuccessfulMessageWhenMovieReturnUnSuccessful() throws Exception {
         movies.add(movie2);
         movie2.setArtisticReturn();
-        String ActualResults = library.returnMovie(movie2);
+        String ActualResults = library.returnArtistic(movie2, "movie");
         String exceptResults = "That is not a valid movie to return.";
         assertEquals(exceptResults, ActualResults);
     }

@@ -18,7 +18,6 @@ public class MoviesTest {
 
     @Test
     public void testSetName() throws Exception {
-        String name = "dp";
         movies.setName(this.name);
         assertEquals(this.name, movies.getName());
     }
@@ -30,7 +29,6 @@ public class MoviesTest {
 
     @Test
     public void testSetYear() throws Exception {
-        int year = 1995;
         movies.setPublishDate(this.year);
         assertEquals(this.year, movies.getPublishDate());
     }
@@ -42,7 +40,6 @@ public class MoviesTest {
 
     @Test
     public void testSetDirector() throws Exception {
-        String director = "G O F";
         movies.setDirector(this.director);
         assertEquals(this.director, movies.getDirector());
     }
@@ -54,7 +51,6 @@ public class MoviesTest {
 
     @Test
     public void testSetRating() throws Exception {
-        int rating = 9;
         movies.setRating(this.rating);
         assertEquals(this.rating, movies.getRating());
     }
