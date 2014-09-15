@@ -4,7 +4,7 @@ package com.twu.biblioteca;
  * Created by fdhuang on 9/9/14.
  */
 
-public abstract class Book extends Artistic{
+public class Book extends Artistic{
     private String author;
 
     public Book(String name, String author, int publishDate) {

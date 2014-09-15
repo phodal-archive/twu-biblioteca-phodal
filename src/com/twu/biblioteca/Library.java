@@ -58,9 +58,9 @@ public class Library {
         String result;
         if(book.isBookInLibrary() == true){
             book.setBookCheckout();
-            result = successfulCheckout();
+            result = successfulCheckout("book");
         } else {
-            result = unsuccessfulCheckout();
+            result = unsuccessfulCheckout("book");
         }
         return result;
     }
@@ -68,29 +68,50 @@ public class Library {
     public String returnBook(LibraryBook book) {
         String result;
         if(book.isBookInLibrary() == true){
-            result = successfulReturn();
+            result = successfulReturn("book");
         } else {
             book.setBookReturn();
-            result = unsuccessfulReturn();
+            result = unsuccessfulReturn("book");
         }
         return result;
     }
 
-    private String unsuccessfulCheckout() {
-        return "That book is not available.";
+    public String checkoutMovie(LibraryMovies movie) {
+        String result;
+        if(movie.isArtisticInLibrary() == true){
+            movie.setArtisticCheckout();
+            result = successfulCheckout("movie");
+        } else {
+            result = unsuccessfulCheckout("movie");
+        }
+        return result;
     }
 
-    private String successfulCheckout() {
-        return "Thank you! Enjoy the book";
+    public String returnMovie(LibraryMovies movie) {
+        String result;
+        if(movie.isArtisticInLibrary() == true){
+            result = successfulReturn("movie");
+        } else {
+            movie.setArtisticReturn();
+            result = unsuccessfulReturn("movie");
+        }
+        return result;
     }
 
-    private String unsuccessfulReturn() {
-        return "Thank you for returning the book.";
+    private String unsuccessfulCheckout(String artistic) {
+        return "That " + artistic + " is not available.";
     }
 
-    private String successfulReturn() {
-        return "That is not a valid book to return.";
+    private String successfulCheckout(String artistic) {
+        return "Thank you! Enjoy the " + artistic;
     }
 
+    private String unsuccessfulReturn(String artistic) {
+        return "Thank you for returning the " + artistic + ".";
+    }
+
+    private String successfulReturn(String artistic) {
+        return "That is not a valid " + artistic + " to return.";
+    }
 }
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class BookTest {
-    private Book book = new Book("Design IOT", "Phodal", "2014");
+    private Book book = new Book("Design IOT", "Phodal", 2014);
 
     @Before
     public void setUp() throws Exception {
