@@ -1,5 +1,14 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.artistic.Artistic;
+import com.twu.biblioteca.artistic.book.Book;
+import com.twu.biblioteca.artistic.book.BookDetailsBuilder;
+import com.twu.biblioteca.artistic.movie.Movies;
+import com.twu.biblioteca.user.LibraryUser;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserDetailsBuilder;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,6 +18,7 @@ import java.util.List;
 public class Library {
     private final List<Book> books;
     private final List<Movies> movies;
+    private List<User> users = new ArrayList<>();
 
     public Library(List<Book> books, List<Movies> movies){
         this.books = books;
@@ -37,7 +47,7 @@ public class Library {
         String results = "";
 
         for(int i=0; i< books.size(); i++) {
-            LibraryBookBuilder builder = new LibraryBookBuilder();
+            BookDetailsBuilder builder = new BookDetailsBuilder();
             Book book = books.get(i);
             if(book.isInLibrary() == true) {
                 results += builder
@@ -50,7 +60,7 @@ public class Library {
         return results;
     }
 
-    public String checkoutArtistic(Artistic artistic, String artisticType) {
+    public String setArtisticCheckout(Artistic artistic, String artisticType) {
         String result;
         if(artistic.isInLibrary() == true){
             artistic.setArtisticCheckout();
@@ -61,7 +71,7 @@ public class Library {
         return result;
     }
 
-    public String returnArtistic(Artistic artistic, String artisticType) {
+    public String setArtisticReturn(Artistic artistic, String artisticType) {
         String result;
         if(artistic.isInLibrary() == true){
             result = successfulReturn(artisticType);
@@ -86,6 +96,26 @@ public class Library {
 
     private String successfulReturn(String artistic) {
         return "That is not a valid " + artistic + " to return.";
+    }
+
+    public String login(String id, String password) {
+        for(int i=0; i< users.size(); i++) {
+            User everyUser = users.get(i);
+            if(everyUser.getID().equals(id) && everyUser.getPassword().equals(password)){
+                UserDetailsBuilder userDetailsBuilder = new UserDetailsBuilder();
+                return userDetailsBuilder.addEmail(everyUser)
+                        .addName(everyUser)
+                        .addPhone(everyUser)
+                        .build();
+            } else {
+                return "failed";
+            }
+        }
+        return "failed";
+    }
+
+    public void add(LibraryUser user) {
+        users.add(user);
     }
 }
 

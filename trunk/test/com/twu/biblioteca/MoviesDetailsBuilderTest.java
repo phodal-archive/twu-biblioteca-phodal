@@ -1,11 +1,13 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.artistic.movie.MoviesDetailsBuilder;
+import com.twu.biblioteca.artistic.movie.Movies;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 
-public class LibraryMoviesBuilderTest {
+public class MoviesDetailsBuilderTest {
     String name = "design patterns";
     int year = 1994;
     String director = "GOF";
@@ -15,7 +17,7 @@ public class LibraryMoviesBuilderTest {
 
     @Test
     public void shouldReturnABookDetail() throws Exception {
-        LibraryMoviesBuilder builder = new LibraryMoviesBuilder();
+        MoviesDetailsBuilder builder = new MoviesDetailsBuilder();
         String result = "";
         result = builder.addName(movie)
                 .addYear(movie)

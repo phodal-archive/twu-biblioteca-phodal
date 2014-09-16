@@ -1,9 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.artistic.movie;
+
+import com.twu.biblioteca.artistic.Artistic;
 
 /**
  * Created by fdhuang on 9/15/14.
  */
-public class Movies extends Artistic{
+public class Movies extends Artistic {
+    private final String type;
     private String director;
     private int rating;
 
@@ -11,6 +14,7 @@ public class Movies extends Artistic{
         super(name, publishDate);
         this.director = director;
         this.rating = rating;
+        this.type = "movie";
     }
 
     public String getDirector() {
@@ -27,5 +31,9 @@ public class Movies extends Artistic{
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public String getType() {
+        return type;
     }
 }

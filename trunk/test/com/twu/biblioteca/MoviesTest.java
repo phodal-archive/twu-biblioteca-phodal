@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.artistic.movie.Movies;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

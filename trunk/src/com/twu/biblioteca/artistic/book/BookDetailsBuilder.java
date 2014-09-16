@@ -1,25 +1,25 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.artistic.book;
 
 /**
  * Created by fdhuang on 9/9/14.
  */
 
-public class LibraryBookBuilder {
+public class BookDetailsBuilder {
     private String name;
     private String author;
     private int publishDate;
 
-    public LibraryBookBuilder addName(Book book) {
+    public BookDetailsBuilder addName(Book book) {
         this.name = book.getName();
         return this;
     }
 
-    public LibraryBookBuilder addAuthor(Book book) {
+    public BookDetailsBuilder addAuthor(Book book) {
         this.author = book.getAuthor();
         return this;
     }
 
-    public LibraryBookBuilder addPublishDate(Book book) {
+    public BookDetailsBuilder addPublishDate(Book book) {
         this.publishDate = book.getPublishDate();
         return this;
     }
