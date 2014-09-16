@@ -10,10 +10,6 @@ public class Library {
     private final List<Book> books;
     private final List<Movies> movies;
 
-    public Library(List<Book> books) {
-        this(books, null);
-    }
-
     public Library(List<Book> books, List<Movies> movies){
         this.books = books;
         this.movies = movies;
