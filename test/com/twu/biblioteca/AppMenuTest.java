@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.artistic.book.Book;
+import com.twu.biblioteca.artistic.movie.Movies;
+import com.twu.biblioteca.menu.AppMenu;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,31 +26,24 @@ public class AppMenuTest {
     }
 
     @Test
-    public void testShowMenu() throws Exception {
-        assertEquals("Choose you Menu, Enter the Number to Continue, Enter 'Quit' to quit app:\n" +
-                "1. List All Books\n" +
-                "2. List All Books & Movies\n", menu.showMenu());
-    }
-
-    @Test
     public void testHandler() throws Exception {
 
     }
 
     @Test
     public void testHandlerMenuInput1() throws Exception {
-        assertEquals("Design IOT,Phodal,2014\n", menu.HandlerMenuInput("1"));
+        assertEquals("Design IOT,Phodal,2014\n", menu.handleEvent("1"));
     }
 
     @Test
     public void testHandlerMenuInput2() throws Exception {
         assertEquals("Design IOT,Phodal,2014\n" +
-                "Design IOT\n", menu.HandlerMenuInput("2"));
+                "Design IOT\n", menu.handleEvent("2"));
     }
 
     @Test
     public void testHandlerMenuInputQuit() throws Exception {
-        assertEquals("", menu.HandlerMenuInput("Quit"));
+        assertEquals("", menu.handleEvent("Quit"));
     }
 
     @Test
@@ -55,7 +51,8 @@ public class AppMenuTest {
         assertEquals("Input Error, No such Key\n" +
                 "Choose you Menu, Enter the Number to Continue, Enter 'Quit' to quit app:\n" +
                 "1. List All Books\n" +
-                "2. List All Books & Movies\n", menu.HandlerMenuInput("q"));
+                "2. List All Books & Movies\n" +
+                "3. Login\n", menu.handleEvent("q"));
     }
 
 }

@@ -1,30 +1,30 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.artistic.movie;
 
 /**
  * Created by fdhuang on 9/15/14.
  */
-public class LibraryMoviesBuilder {
+public class MoviesDetailsBuilder {
     private String name;
     private int year;
     private String director;
     private int rating;
 
-    public LibraryMoviesBuilder addName(Movies movie) {
+    public MoviesDetailsBuilder addName(Movies movie) {
         this.name = movie.getName();
         return this;
     }
 
-    public LibraryMoviesBuilder addYear(Movies movie) {
+    public MoviesDetailsBuilder addYear(Movies movie) {
         this.year = movie.getPublishDate();
         return this;
     }
 
-    public LibraryMoviesBuilder addDirector(Movies movie) {
+    public MoviesDetailsBuilder addDirector(Movies movie) {
         this.director = movie.getDirector();
         return this;
     }
 
-    public LibraryMoviesBuilder addRating(Movies movie) {
+    public MoviesDetailsBuilder addRating(Movies movie) {
         this.rating = movie.getRating();
         return this;
     }

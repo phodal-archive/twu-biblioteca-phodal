@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.artistic.book.Book;
+import com.twu.biblioteca.artistic.movie.Movies;
+import com.twu.biblioteca.user.LibraryUser;
+import com.twu.biblioteca.user.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,19 +16,39 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class LibraryUserTest {
     List<User> users = new ArrayList<>();
-    User user = new User("123456", "123-4356");
-    User user2 = new User("654321", "123-4356");
-    LibraryUser libraryUser = new LibraryUser(users);
+    private LibraryUser user = new LibraryUser("123-3423", "phodal", "18209219631", "h@phodal.com", "phodal");
+    LibraryUser user2 = new LibraryUser("123-4356", "654321");
+    private Book book = new Book("Design IOT", "Phodal", 2014);
+    private Book book2 = new Book("Design IOT 2", "Phodal", 2014);
+    private List<Book> allBooks = new ArrayList<>();
+    private List<Movies> movies = new ArrayList<>();
+    private Library library = new Library(allBooks, movies);
 
     @Test
-    public void testLoginSuccess() throws Exception {
-        users.add(user);
-        assertEquals("success", libraryUser.login(user));
+    public void shouldReturnUserDetailsWhenLoginSuccess() throws Exception {
+        library.add(user);
+        assertEquals("18209219631\n" +
+                "h@phodal.com\n" +
+                "phodal\n", library.login(user.getID(), user.getPassword()));
     }
     
     @Test
     public void testLoginFailed() throws Exception {
-        users.add(user);
-        assertEquals("failed", libraryUser.login(user2));
+        library.add(user);
+        assertEquals("failed", library.login(user2.getID(), user2.getPassword()));
+    }
+
+    @Test
+    public void testUserCanCheckoutArtistic() throws Exception {
+        user.checkoutArtistic(book, book.getType());
+        assertEquals("Design IOT\n", user.listAllArtistic());
+    }
+
+    @Test
+    public void testUserCanCheckoutArtisticReturnAndCheckoutAgain() throws Exception {
+        user.checkoutArtistic(book, book.getType());
+        user.returnArtistic(book, book.getType());
+        user.checkoutArtistic(book, book.getType());
+        assertEquals("Design IOT\n", user.listAllArtistic());
     }
 }
