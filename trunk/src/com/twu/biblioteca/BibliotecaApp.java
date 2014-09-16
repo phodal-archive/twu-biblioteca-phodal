@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
     private static Book book = new Book("Design IOT", "Phodal", 2014);
@@ -18,9 +19,17 @@ public class BibliotecaApp {
     public static void main(String[] args) throws IOException {
         initLibrary();
         System.out.println(welcomeMessage);
-
         System.out.println(menu.showMenu());
-        menu.handlerInput();
+        String key = "";
+        while(key.equals("Quit") != true) {
+            Scanner sc = new Scanner(System.in);
+            key = sc.nextLine();
+
+            System.out.println("You Select Menu: " + key);
+            String results = menu.HandlerMenuInput(key);
+            System.out.println(results);
+        }
+
     }
 
     private static void initLibrary() {
