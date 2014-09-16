@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 /**
  * Created by fdhuang on 9/16/14.
  */
@@ -17,18 +15,6 @@ public class AppMenu {
         String listBooks = "1. List All Books";
         String listAllArtistic = "2. List All Books & Movies";
         return choice + "\n" + listBooks + "\n" + listAllArtistic + "\n";
-    }
-
-    public void handlerInput() {
-        String key = "";
-        while(key.equals("Quit") != true) {
-            Scanner sc = new Scanner(System.in);
-            key = sc.nextLine();
-
-            System.out.println("You Select Menu: " + key);
-            String results = HandlerMenuInput(key);
-            System.out.println(results);
-        }
     }
 
     public String HandlerMenuInput(String key) {
